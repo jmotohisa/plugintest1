@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		622817111C4F0F0C00B87A3A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622817101C4F0F0C00B87A3A /* AppKit.framework */; };
+		622817131C4F0F0C00B87A3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622817121C4F0F0C00B87A3A /* Foundation.framework */; };
+		622817171C4F0F0C00B87A3A /* plugintest1.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 622817161C4F0F0C00B87A3A /* plugintest1.xcscheme */; };
+		6228171A1C4F0F0C00B87A3A /* plugintest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 622817191C4F0F0C00B87A3A /* plugintest1.m */; };
+		6228171D1C4F0F0C00B87A3A /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228171C1C4F0F0C00B87A3A /* NSObject_Extension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6228170D1C4F0F0C00B87A3A /* plugintest1.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plugintest1.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		622817101C4F0F0C00B87A3A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		622817121C4F0F0C00B87A3A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		622817161C4F0F0C00B87A3A /* plugintest1.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = plugintest1.xcscheme; path = plugintest1.xcodeproj/xcshareddata/xcschemes/plugintest1.xcscheme; sourceTree = SOURCE_ROOT; };
+		622817181C4F0F0C00B87A3A /* plugintest1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plugintest1.h; sourceTree = "<group>"; };
+		622817191C4F0F0C00B87A3A /* plugintest1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plugintest1.m; sourceTree = "<group>"; };
+		6228171B1C4F0F0C00B87A3A /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		6228171C1C4F0F0C00B87A3A /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		6228171E1C4F0F0C00B87A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6228170B1C4F0F0C00B87A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622817111C4F0F0C00B87A3A /* AppKit.framework in Frameworks */,
+				622817131C4F0F0C00B87A3A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		622817041C4F0F0C00B87A3A = {
+			isa = PBXGroup;
+			children = (
+				622817141C4F0F0C00B87A3A /* plugintest1 */,
+				6228170F1C4F0F0C00B87A3A /* Frameworks */,
+				6228170E1C4F0F0C00B87A3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6228170E1C4F0F0C00B87A3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6228170D1C4F0F0C00B87A3A /* plugintest1.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6228170F1C4F0F0C00B87A3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				622817101C4F0F0C00B87A3A /* AppKit.framework */,
+				622817121C4F0F0C00B87A3A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		622817141C4F0F0C00B87A3A /* plugintest1 */ = {
+			isa = PBXGroup;
+			children = (
+				622817181C4F0F0C00B87A3A /* plugintest1.h */,
+				622817191C4F0F0C00B87A3A /* plugintest1.m */,
+				6228171B1C4F0F0C00B87A3A /* NSObject_Extension.h */,
+				6228171C1C4F0F0C00B87A3A /* NSObject_Extension.m */,
+				6228171E1C4F0F0C00B87A3A /* Info.plist */,
+				622817151C4F0F0C00B87A3A /* Supporting Files */,
+			);
+			path = plugintest1;
+			sourceTree = "<group>";
+		};
+		622817151C4F0F0C00B87A3A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				622817161C4F0F0C00B87A3A /* plugintest1.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6228170C1C4F0F0C00B87A3A /* plugintest1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 622817211C4F0F0C00B87A3A /* Build configuration list for PBXNativeTarget "plugintest1" */;
+			buildPhases = (
+				622817091C4F0F0C00B87A3A /* Sources */,
+				6228170A1C4F0F0C00B87A3A /* Resources */,
+				6228170B1C4F0F0C00B87A3A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = plugintest1;
+			productName = plugintest1;
+			productReference = 6228170D1C4F0F0C00B87A3A /* plugintest1.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		622817051C4F0F0C00B87A3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Hokkaido University";
+				TargetAttributes = {
+					6228170C1C4F0F0C00B87A3A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 622817081C4F0F0C00B87A3A /* Build configuration list for PBXProject "plugintest1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 622817041C4F0F0C00B87A3A;
+			productRefGroup = 6228170E1C4F0F0C00B87A3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6228170C1C4F0F0C00B87A3A /* plugintest1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6228170A1C4F0F0C00B87A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622817171C4F0F0C00B87A3A /* plugintest1.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		622817091C4F0F0C00B87A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6228171A1C4F0F0C00B87A3A /* plugintest1.m in Sources */,
+				6228171D1C4F0F0C00B87A3A /* NSObject_Extension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6228171F1C4F0F0C00B87A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		622817201C4F0F0C00B87A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		622817221C4F0F0C00B87A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = plugintest1/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = hokudai.plugintest1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		622817231C4F0F0C00B87A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = plugintest1/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = hokudai.plugintest1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		622817081C4F0F0C00B87A3A /* Build configuration list for PBXProject "plugintest1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6228171F1C4F0F0C00B87A3A /* Debug */,
+				622817201C4F0F0C00B87A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		622817211C4F0F0C00B87A3A /* Build configuration list for PBXNativeTarget "plugintest1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				622817221C4F0F0C00B87A3A /* Debug */,
+				622817231C4F0F0C00B87A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 622817051C4F0F0C00B87A3A /* Project object */;
+}
