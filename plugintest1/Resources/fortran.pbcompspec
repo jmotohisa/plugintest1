@@ -1,0 +1,202 @@
+/*
+	fortran.pbcompspec - FortranPlugin
+	Copyright 2006-2008 Damien Bobillot.
+	Distributed under the GPL v3 licence.
+*/
+(
+	{
+		Identifier = fr.bobillot.compilers.gfortran;
+		Class = BDCompilerSpecificationGFortran;
+		Name = "Fortran";
+		Description = "GCC Fortran source compiler";
+		Version = "4.2";
+		Vendor = "GCC Fortran";
+		Languages = (fortran);
+		FileTypes = (sourcecode.fortran);
+		Architectures = (i386, ppc, ppc7400, ppc7450, ppc970, ppc64, x86_64);
+		ExecPath = "$(GFORTRAN_BASE_PATH)/bin/gfortran";
+		StandardLibsForPPC = (
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortranbegin.a",
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortran.a",
+			"$(GFORTRAN_BASE_PATH)/lib/gcc/powerpc-apple-darwin8.7.0/4.2.0/libgcc.a"
+		);
+		StandardLibsForIntel = (
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortranbegin.a",
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortran.a",
+			"$(GFORTRAN_BASE_PATH)/lib/gcc/i386-apple-darwin8.7.0/4.2.0/libgcc.a"
+		);
+		StandardLibsForZeroLink = (
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortranbegin.a",
+			"$(GFORTRAN_BASE_PATH)/lib/libgfortran.a",
+		);
+		CommandOutputParser = XCGccCommandOutputParser;
+		Options = (
+			//{	Name = arch;
+			//	CommandLineArgs = ( "-arch", "$(value)" );
+			//},
+			"-pipe", "-x", "f95", "-c",
+			
+			// 
+			{	Name = GFORTRAN_LANGUAGE_STANDARD;
+				Type = enum;
+				AllowedValues = (DEFAULT, F95, F2003, LEGACY);
+				DefaultValue = DEFAULT;
+				CommandLineArgs = { DEFAULT = (); F95 = ("-std=f95"); F2003 = ("-std=f2003"); LEGACY = ("-std=legacy"); };
+				Category = Language;
+			},
+			{	Name = GFORTRAN_AUTO_DONT_ADD_LINKER_ARGS;
+				Type = bool;
+				DefaultValue = NO;
+				AdditionalArgsForFixBundlizing = ("-Wl,-all_load");
+				Category = Language;
+			},
+			{	Name = OTHER_GFORTRANFLAGS;
+				Type = stringlist;
+				CommandLineArgs = ( "$(value)" );
+				DefaultValue = "";
+				Category = Language;
+			},
+			
+			// Shared with Apple's GCC
+			{   Name = GCC_GENERATE_DEBUGGING_SYMBOLS;
+				Type = bool;
+				DefaultValue = YES;
+				Category = CodeGeneration;
+				CommonOption = YES;
+			},
+			{   Name = GCC_DEBUG_INFORMATION_FORMAT;
+				Type = enum;
+				AllowedValues = ("stabs", "dwarf", "dwarf-with-dsym");
+				CommandLineArgs = { "dwarf" = ("-gdwarf-2"); "dwarf-with-dsym" = ("-gdwarf-2"); "<<otherwise>>"=(); };
+				DefaultValue = "$(DEBUG_INFORMATION_FORMAT)";
+				Condition = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)";
+				CommonOption = NO;
+			},
+			{   Name = GCC_DEBUGGING_SYMBOLS;
+				Type = enum;
+				AllowedValues = (used, full, default);
+				DefaultValue = default;
+				CommandLineArgs = { used = (-gused); full = (-gfull); default = (-g); };
+				Condition = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)  &&  $(GCC_DEBUG_INFORMATION_FORMAT) == stabs";
+				Category = CodeGeneration;
+			},
+			//GCC_ENABLE_SYMBOL_SEPARATION
+			{   Name = GCC_OPTIMIZATION_LEVEL;
+				Type = enum;
+				AllowedValues = (0, 1, 2, 3, s);
+				DefaultValue = s;
+				CommandLineArgs = ("-O${0}");
+				Category = CodeGeneration;
+				CommonOption = YES;
+			},
+			{   Name = GCC_GENERATE_PROFILING_CODE;
+				Type = bool;
+				DefaultValue = "$(GENERATE_PROFILING_CODE)";
+				CommandLineArgs = { YES = (-pg); NO = (); };
+			},
+			{   Name = GCC_NO_COMMON_BLOCKS;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-fno-common); NO = (); };
+				Category = CodeGeneration;
+			},
+			//GCC_REUSE_STRINGS (not available in gfortran)
+			{   Name = GCC_DYNAMIC_NO_PIC;
+				Type = bool;
+				DefaultValue = NO;
+				// Flags for this option are being generated in code, because use of this flag is mutually exclusive with -fzero-link.
+				Category = CodeGeneration;
+			},
+			//GCC_FAST_OBJC_DISPATCH
+			//GCC_ENABLE_OBJC_GC
+			{   Name = GCC_UNROLL_LOOPS;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-funroll-loops); NO = (); };
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_FAST_MATH;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-ffast-math); NO = (); };
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_STRICT_ALIASING;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-fstrict-aliasing); NO = (); };
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_MODEL_CPU;
+				Type = enum;
+				AllowedValues = ("", G3, G4, G5);
+				DefaultValue = "";
+				CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mcpu=${0}"); };
+				Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_MODEL_TUNING;
+				Type = enum;
+				AllowedValues = ("", G3, G4, G5);
+				DefaultValue = G4;
+				CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mtune=${0}"); };
+				Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_MODEL_PPC64;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-mpowerpc64); NO = (); };
+				Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_AUTO_VECTORIZATION;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-ftree-vectorize); NO = (); };
+				Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64, i386, x86_64);
+				AppearsAfter = GCC_MODEL_PPC64;
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_ENABLE_SSE3_EXTENSIONS;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-msse3); NO = (); };
+				Architectures = (i386);
+				AppearsAfter = GCC_AUTO_VECTORIZATION;
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_FEEDBACK_DIRECTED_OPTIMIZATION;
+				Type = enum;
+				DefaultValue = Off;
+				AllowedValues = (Off, GenerateProfile, UseProfile);
+				CommandLineArgs = { Off = (); GenerateProfile = (-fprofile-generate); UseProfile = (-fprofile-use); };
+				AdditionalLinkerArgs = { Off = (); GenerateProfile = (-fprofile-generate); UseProfile = (-fprofile-use); };
+				AppearsAfter = GCC_ENABLE_SSE3_EXTENSIONS;
+				Category = CodeGeneration;
+			},
+			//GCC_SYMBOLS_PRIVATE_EXTERN
+			//GCC_INLINES_ARE_PRIVATE_EXTERN
+			{   Name = GCC_ENABLE_FIX_AND_CONTINUE;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-mfix-and-continue); NO = (); };
+				Category = CodeGeneration;
+			},
+			//GCC_OBJC_CALL_CXX_CDTORS
+			//GCC_THREADSAFE_STATICS
+			{   Name = GCC_INSTRUMENT_PROGRAM_FLOW_ARCS;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-fprofile-arcs); NO = (); };
+				Category = CodeGeneration;
+			},
+			{   Name = GCC_GENERATE_TEST_COVERAGE_FILES;
+				Type = bool;
+				DefaultValue = NO;
+				CommandLineArgs = { YES = (-ftest-coverage); NO = (); };
+				Category = CodeGeneration;
+			},
+		);
+	},
+)

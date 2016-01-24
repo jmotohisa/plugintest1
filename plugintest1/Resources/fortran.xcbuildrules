@@ -1,0 +1,12 @@
+/*
+	fortran.xcbuildrules - FortranPlugin
+	Copyright 2006-2008 Damien Bobillot.
+	Distributed under the GPL v3 licence.
+*/
+(
+	{
+		Name = "Fortran source rule";
+		FileType = "sourcecode.fortran";
+		CompilerSpec = "fr.bobillot.compilers.gfortran";
+	},
+)

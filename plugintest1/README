@@ -1,0 +1,52 @@
+What is it ?
+============
+
+This software is a plugin for Xcode, adding native support for the Fortran langage in Xcode.
+You need to install the gcc fortran compiler independantly.
+
+It supports :
+- source code highlighting (.f77 or .f95 files)
+- Xcode look & feel to manage a project
+- writing pure Fortran programs
+- mixing Fortran with other languages like C
+- debug fortran code from Xcode
+
+How to install ?
+================
+
+Copy "Fortran.pbplugin" to "~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/"
+Copy "File Templates/*" to "~/Library/Application Support/Developer/Shared/Xcode/File Templates/Fortran/"
+
+Tested with Xcode 3.0 only. Won't work with previous versions.
+
+By default, the plugin look for a gcc fortan-enabled compiler at /usr/local/bin.
+If the compiler is installed at a different location (like /usr/local/gfortran-4.2/bin),
+let the plugin know it by running the following command in a shell :
+defaults com.apple.Xcode DBGFortranBasePath /usr/local/gfortran-4.2
+
+How to use ?
+============
+
+Just add your fortran files to an existing project using the ld linker (it is the case for
+most C project).
+
+Links
+=====
+
+Web site : http://maxao.free.fr/xcode-fortran-plugin/
+Download : http://sourceforge.net/project/showfiles.php?group_id=184878&package_id=218594
+SVN repository : http://xcodeplugins.svn.sourceforge.net/svnroot/xcodeplugins/FortranPlugin
+Support mailing list : https://lists.sourceforge.net/lists/listinfo/xcodeplugins-users
+
+Copyright
+=========
+
+The source code is published under the GPL v3 licence : you may use it freely as long as you respect
+the GPL v3 licence, and mention the initial copyright of its author, Damien Bobillot.
+
+Revision History
+================
+
+1.0b3 (Oct 2008) : update for Mac OS X 10.5.5
+1.0b2 (Feb 2008) : update for Xcode 3
+1.0b1 (Sep 2006) : first version (for Xcode 2.3 and 2.4)

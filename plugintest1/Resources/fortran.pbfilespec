@@ -1,0 +1,34 @@
+/*
+	fortran.pbfilespec - FortranPlugin
+	Copyright 2006-2008 Damien Bobillot.
+	Distributed under the GPL v3 licence.
+*/
+(
+	{
+		/* Override Xcode's own definition of sourcecode.fortran */
+		Identifier = sourcecode.fortran;
+		BasedOn = sourcecode;
+		Name = "Fortran source files";
+		Extensions = (f, for);
+		ComputerLanguage = fortran;
+        Language = "xcode.lang.fortran";
+		//GccDialectName = fortran;
+		AppliesToBuildRules = yes;
+	},
+		{
+			/* Override Xcode's own definition of sourcecode.fortran.f70 */
+			Identifier = sourcecode.fortran.f77;
+			BasedOn = sourcecode.fortran;
+			Extensions = (f77);
+			AppliesToBuildRules = no;
+		},
+		{
+			/* Override Xcode's own definition of sourcecode.fortran.f90 */
+			Identifier = sourcecode.fortran.f90;
+			BasedOn = sourcecode.fortran;
+			Extensions = (f90,f95);
+			ComputerLanguage = fortran.f90;
+			Language = "xcode.lang.fortran.f90";
+			AppliesToBuildRules = no;
+		},
+)

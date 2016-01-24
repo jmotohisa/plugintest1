@@ -1,0 +1,145 @@
+/*
+	fortran.pblangspec - FortranPlugin
+	Imported from Xcode's own definition of fortran
+*/
+(
+	{
+		Identifier = fortran;
+		Name = "Fortran";
+		Description = "Fortran";
+		BasedOn = "pbx_root_language";
+		SourceScannerClassName = PBXCSourceScanner;
+		SupportsIndentation = NO;
+		Indentation = {
+		};
+		SyntaxColoring = {
+			CaseSensitive = NO;
+			FortranStyleComments = YES;
+			IdentifierStartChars = "_";	// not really sure about these
+			IdentifierChars = "$_";	// not really sure about these
+			SingleLineComment = ("!");
+			String = (("\"","\""));
+			Keywords = (
+				"allocatable",
+				"allocate",
+				"assign",
+				"assignment",
+				"backspace",
+				"block",
+				"blockdata",
+				"call",
+				"case",
+				"character",
+				"close",
+				"common",
+				"complex",
+				"contains",
+				"continue",
+				"cycle",
+				"data",
+				"deallocate",
+				"default",
+				"dimension",
+				"do",
+				"double",
+				"doublecomplex",
+				"doubleprecision",
+				"else",
+				"elseif",
+				"elsewhere",
+				"end",
+				"endblock",
+				"endblockdata",
+				"enddo",
+				"endfile",
+				"endforall",
+				"endfunction",
+				"endif",
+				"endinterface",
+				"endmodule",
+				"endprogram",
+				"endselect",
+				"endsubroutine",
+				"endtype",
+				"endwhere",
+				"endmap",
+				"endstructure",
+				"endunion",
+				"entry",
+				"equivalence",
+				"exit",
+				"external",
+				"extrinsic",
+				"forall",
+				"format",
+				"function",
+				"global",
+				"go",
+				"goto",
+				"if",
+				"implicit",
+				"in",
+				"inout",
+				"include",
+				"inquire",
+				"integer",
+				"intent",
+				"interface",
+				"intrinsic",
+				"logical",
+				"map",
+				"module",
+				"namelist",
+				"none",
+				"nullify",
+				"open",
+				"operator",
+				"optional",
+				"out",
+				"parameter",
+				"pause",
+				"pointer",
+				"precision",
+				"print",
+				"private",
+				"procedure",
+				"program",
+				"public",
+				"pure",
+				"read",
+				"real",
+				"record",
+				"recursive",
+				"return",
+				"rewind",
+				"save",
+				"select",
+				"selectcase",
+				"sequence",
+				"stop",
+				"string",
+				"structure",
+				"subroutine",
+				"target",
+				"then",
+				"to",
+				"type",
+				"union",
+				"use",
+				"where",
+				"while",
+				"write"
+			);
+		};
+	},
+	{
+		/* Override Xcode's own definition of fortran.f90 */
+		Identifier = fortran.f90;
+		Name = "Fortran 90";
+		Description = "Fortran 90";
+		BasedOn = "fortran";
+		SyntaxColoring = {
+			FortranStyleComments = NO;
+		};
+	},
+)

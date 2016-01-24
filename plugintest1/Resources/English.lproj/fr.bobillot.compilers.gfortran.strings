@@ -1,0 +1,122 @@
+/*
+	fr.bobillot.compilers.gfortran.strings - FortranPlugin
+	Copyright 2005-2006 Damien Bobillot.
+	Distributed under the GPL v3 licence.
+	
+	gfortran compiler option descriptions
+*/
+
+// Language
+"[Language]-category" = "Language";
+
+"[OTHER_GFORTRANFLAGS]-name" = "Other Fortran Flags";
+"[OTHER_GFORTRANFLAGS]-description" = "Space-separated list of additional flags to pass to the compiler for Fortran files.  Be sure to backslash-escape any arguments that contain spaces or special characters (e.g. path names that may contain spaces).  Use this setting if Xcode does not already provide UI for a Fortran compiler flag. [OTHER_GFORTRANFLAGS]";
+
+"[GFORTRAN_AUTO_DONT_ADD_LINKER_ARGS]-name" = "No standard libraries";
+"[GFORTRAN_AUTO_DONT_ADD_LINKER_ARGS]-description" = "[GFORTRAN_AUTO_DONT_ADD_LINKER_ARGS]";
+
+"[GFORTRAN_LANGUAGE_STANDARD]-name" = "Fortran Language Dialect";
+"[GFORTRAN_LANGUAGE_STANDARD]-description" = "[GFORTRAN_LANGUAGE_STANDARD, -std=<lang>]";
+"[GFORTRAN_LANGUAGE_STANDARD]-value-[DEFAULT]" = "Default";
+"[GFORTRAN_LANGUAGE_STANDARD]-value-[F95]" = "f95";
+"[GFORTRAN_LANGUAGE_STANDARD]-value-[F2003]" = "f2003";
+"[GFORTRAN_LANGUAGE_STANDARD]-value-[LEGACY]" = "Legacy";
+
+// Code Generation (shared with Apple's GCC)
+"[CodeGeneration]-category" = "Code Generation";
+
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-name" = "Generate Debug Symbols";
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-description" = "Enables or disables generation of debug symbols.  When debug symbols are enabled, the level of detail can be controlled by the build 'Level of Debug Symbols' setting. [GCC_GENERATE_DEBUGGING_SYMBOLS]";
+
+"[GCC_DEBUGGING_SYMBOLS]-name" = "Level of Debug Symbols";
+"[GCC_DEBUGGING_SYMBOLS]-description" = "Referenced Symbols [-gused]:  Debug symbols are generated only for those symbols that are referenced by the source module.
+
+All Symbols [-gfull]:  Debug symbols are generated for all symbols present in the source file and in any included header files.
+
+Default [-g]:  Lets the compiler choose an appropriate level of debug symbols. [GCC_DEBUGGING_SYMBOLS]";
+"[GCC_DEBUGGING_SYMBOLS]-value-[used]" = "Referenced Symbols [used, -gused]";
+"[GCC_DEBUGGING_SYMBOLS]-value-[full]" = "All Symbols [full, -gfull]";
+"[GCC_DEBUGGING_SYMBOLS]-value-[default]" = "Default [default, -g]";
+
+"[GCC_OPTIMIZATION_LEVEL]-name" = "Optimization Level";
+"[GCC_OPTIMIZATION_LEVEL]-description" = "None: Do not optimize. [-O0] 
+
+With this setting, the compiler's goal is to reduce the cost of compilation and to make debugging produce the expected results.  Statements are independent: if you stop the program with a breakpoint between statements, you can then assign a new value to any variable or change the program counter to any other statement in the function and get exactly the results you would expect from the source code. 
+
+Fast: Optimizing compilation takes somewhat more time, and a lot more memory for a large function. [-O, -O1]
+
+ With this setting, the compiler tries to reduce code size and execution time, without performing any optimizations that take a great deal of compilation time. In Apple's compiler, strict aliasing, block reordering, and inter-block scheduling are disabled by default when optimizing.  
+
+Faster: The compiler performs nearly all supported optimizations that do not involve a space-speed tradeoff. [-O2]  
+
+With this setting, the compiler does not perform loop unrolling or function inlining, or register renaming.  As compared to the 'Fast' setting, this setting increases both compilation time and the performance of the generated code.    
+
+Fastest: Turns on all optimizations specified by the 'Faster' setting and also turns on function inlining and register renaming options. This setting may result in a larger binary. [-O3]  
+
+Fastest, smallest: Optimize for size.  This setting enables all 'Faster' optimizations that do not typically increase code size.  It also performs further optimizations designed to reduce code size. [-Os]
+
+[GCC_OPTIMIZATION_LEVEL]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[0]" = "None [-O0]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[1]" = "Fast [-O, O1]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[2]" = "Faster [-O2]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[3]" = "Fastest [-O3]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[s]" = "Fastest, Smallest [-Os]";
+
+"[GCC_NO_COMMON_BLOCKS]-name" = "No Common Blocks";
+"[GCC_NO_COMMON_BLOCKS]-description" = "In C, allocate even uninitialized global variables in the data section of the object file, rather than generating them as common blocks.  This has the effect that if the same variable is declared (without extern ) in two different compilations, you will get an error when you link them.  The only reason this might be useful is if you wish to verify that the program will work on other systems which always work this way.  [GCC_NO_COMMON_BLOCKS, -fno-common]";
+
+"[GCC_REUSE_STRINGS]-name" = "Make Strings Read-Only";
+"[GCC_REUSE_STRINGS]-description" = "Reuse string literals. [GCC_REUSE_STRINGS, -fwritable-strings]";
+
+"[GCC_DYNAMIC_NO_PIC]-name" = "Generate Position-Dependent Code";
+"[GCC_DYNAMIC_NO_PIC]-description" = "Faster function calls for applications. Not appropriate for shared libraries (which need to be position-independent). [GCC_DYNAMIC_NO_PIC, -mdynamic-no-pic]";
+
+"[GCC_UNROLL_LOOPS]-name" = "Unroll Loops";
+"[GCC_UNROLL_LOOPS]-description" = "Unrolls loops. Unrolling makes the code larger, but may make it faster by reducing the number of branches executed. [GCC_UNROLL_LOOPS, -funroll-loops]";
+
+"[GCC_FAST_MATH]-name" = "Relax IEEE Compliance";
+"[GCC_FAST_MATH]-description" = "Enables some floating point optimizations that are not IEEE754-compliant, but which usually work. Programs which require strict IEEE compliance may not work with this option. [GCC_FAST_MATH, -ffast-math]";
+
+"[GCC_STRICT_ALIASING]-name" = "Enforce Strict Aliasing";
+"[GCC_STRICT_ALIASING]-description" = "Optimize code by making more aggressive assumptions about whether pointers can point to the same objects as other pointers. Programs which use pointers a lot may benefit from this, but programs that don't strictly follow the ISO C rules about the type with which an object may be accessed may behave unexpectedly. [GCC_STRICT_ALIASING, -fstrict-aliasing]";
+
+"[GCC_MODEL_CPU]-name" = "Target CPU";
+"[GCC_MODEL_CPU]-description" = "Instruction and register set to use for generated code.  Code will not run on older processors. [GCC_MODEL_CPU, -mcpu=<cpu>]";
+"[GCC_MODEL_CPU]-value-[]" = "Generic PowerPC";
+"[GCC_MODEL_CPU]-value-[G3]" = "PowerPC G3 [-mcpu=G3]";
+"[GCC_MODEL_CPU]-value-[G4]" = "PowerPC G4 [-mcpu=G4]";
+"[GCC_MODEL_CPU]-value-[G5]" = "PowerPC G5 [-mcpu=G5]";
+
+"[GCC_MODEL_TUNING]-name" = "Instruction Scheduling";
+"[GCC_MODEL_TUNING]-description" = "Optimize instruction scheduling for this CPU.  Generated code will run on older processors. [GCC_MODEL_TUNING, -mtune=<cpu>]";
+"[GCC_MODEL_TUNING]-value-[]" = "None";
+"[GCC_MODEL_TUNING]-value-[G3]" = "PowerPC G3 [-mtune=G3]";
+"[GCC_MODEL_TUNING]-value-[G4]" = "PowerPC G4 [-mtune=G4]";
+"[GCC_MODEL_TUNING]-value-[G5]" = "PowerPC G5 [-mtune=G5]";
+
+"[GCC_MODEL_PPC64]-name" = "Use 64-bit Integer Math";
+"[GCC_MODEL_PPC64]-description" = "Emit integer instructions that use 64-bit registers and arithmetic opcodes.  Code compiled using this setting will not run on 32-bit processors. [GCC_MODEL_PPC64, -mpowerpc64]";
+
+"[GCC_ENABLE_SYMBOL_SEPARATION]-name" = "Separate PCH Symbols";
+"[GCC_ENABLE_SYMBOL_SEPARATION]-description" = "When precompiling a prefix header, generate a separate file containing the debug symbols for the PCH. This can improve build time, and is on by default for products other than static libraries. This option cannot be used when ZeroLink is enabled and can only be used when the Level of Debug Symbols setting is 'All Symbols' (full).  Note that this option only affects STABS and is incompatible with DWARF.  [GCC_ENABLE_SYMBOL_SEPARATION, -fsave-repository=<file>]";
+
+"[GCC_AUTO_VECTORIZATION]-name" = "Auto-vectorization";
+"[GCC_AUTO_VECTORIZATION]-description" = "Performs automatic loop vectorization whenever it is appropriate. This setting only takes effect when the optimization level is 2 or higher and when targetting a processor that supports auto-vectorization; if the optimization level is lower than 2 or the processor targetted doesn't support vector operations, this setting has no effect. [GCC_AUTO_VECTORIZATION, -ftree-vectorize]";
+
+"[GCC_ENABLE_SSE3_EXTENSIONS]-name" = "Enable SSE3 Extensions";
+"[GCC_ENABLE_SSE3_EXTENSIONS]-description" = "Enables the use of built-in functions that provide access to the SSE3 extensions to the IA-32 instruction set. [GCC_ENABLE_SSE3_EXTENSIONS, -msse3]";
+
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-name" = "Feedback-Directed Optimization";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-description" = "Enable profile feedback-directed optimization. First build the program in 'Generate Profile' mode and run it in a representative manner. This causes the program to generate profile trace files when it exits (they will be generated next to the .o files). Multiple runs of the program add data to the profile trace files. Then rebuild the program in 'Use Profile' mode; this will use the information in the profile trace files to make decisions about optimization. Note that if the code paths taken during the \"training\" pass are not representative of what is going to happen in the optimized application, performance may actually get worse, since the code will be optimized based on misleading data. [GCC_FEEDBACK_DIRECTED_OPTIMIZATION, -profile-generate, -profile-use]";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[Off]" = "Off";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[GenerateProfile]" = "Generate Profile";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[UseProfile]" = "Use Profile for Optimization";
+
+"[GCC_ENABLE_FIX_AND_CONTINUE]-name" = "Fix & Continue";
+"[GCC_ENABLE_FIX_AND_CONTINUE]-description" = "Activating this setting indicates that binaries should be built for use with Fix & Continue. This setting is enabled by default in Debug build configurations and should be enabled or disabled there. Note: It is recommended that release or deployment builds NOT be built for use with Fix & Continue. [GCC_ENABLE_FIX_AND_CONTINUE, -mfix-and-continue]";
+
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-name" = "Instrument Program Flow";
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-description" = "Activating this setting indicates that code should be added so program flow arcs are instrumented. See the gcc man page for more information. [GCC_INSTRUMENT_PROGRAM_FLOW_ARCS, -fprofile-arcs]";
+
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-name" = "Generate Test Coverage Files";
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-description" = "Activating this setting causes a 'notes' file to be produced that the gcov code-coverage utility can use to show program coverage. See the gcc man page for more information. [GCC_GENERATE_TEST_COVERAGE_FILES, -ftest-coverage]";
